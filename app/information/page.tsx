@@ -6,7 +6,7 @@ export function Information() {
     <>
       <div className="mx-4 ">
         <PersonalDetail />
-        <ContactFamilyMember />
+        {/* <ContactFamilyMember /> */}
       </div>
     </>
   );
