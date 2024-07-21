@@ -3,7 +3,7 @@ import { CallIcon } from "./icon/callicon";
 export function ContactFamilyMember() {
   return (
     <>
-      {/* <div className="mt-10">
+      <div className="mt-10">
         <h1 className="flex items-center gap-2 text-ld text-gray-400 font-bold my-3">
           <CallIcon />
           CONTACT FAMILY MEMBERS
@@ -22,7 +22,7 @@ export function ContactFamilyMember() {
             <p className="text-gray-400">0918373429</p>
           </div>
         </div>
-      </div>{" "} */}
+      </div>{" "}
     </>
   );
 }
