@@ -1,4 +1,4 @@
-import { PersonalDetail } from "./personal-detail/page";
+import { PersonalDetail } from "../personal-detail/page";
 
 export function Information() {
   return (
