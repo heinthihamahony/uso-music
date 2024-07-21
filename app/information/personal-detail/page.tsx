@@ -1,22 +1,11 @@
+import { InfoIcon } from "./icon/infoicon";
+
 export function PersonalDetail() {
   return (
     <>
       <div className="mt-6">
         <h1 className="flex items-center gap-2 text-ld text-gray-400 font-bold my-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#ea1a4e"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className="lucide lucide-info w-5"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 16v-4" />
-            <path d="M12 8h.01" />
-          </svg>
+          <InfoIcon />
           PERSONAL DETAILS
         </h1>
         <div className=" shadow-xl px-4 py-2 border rounded-xl">
