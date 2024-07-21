@@ -3,7 +3,7 @@ import { InfoIcon } from "./icon/infoicon";
 export function PersonalDetail() {
   return (
     <>
-      <div className="mt-6">
+      {/* <div className="mt-6">
         <h1 className="flex items-center gap-2 text-ld text-gray-400 font-bold my-3">
           <InfoIcon />
           PERSONAL DETAILS
@@ -50,7 +50,7 @@ export function PersonalDetail() {
             <p className="text-gray-400">No</p>
           </div>
         </div>
-      </div>{" "}
+      </div>{" "} */}
     </>
   );
 }
