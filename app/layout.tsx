@@ -10,6 +10,7 @@ import ImagePreloader from "./compounent/ui/image-preloader";
 import CriticalImagePreloader from "./compounent/ui/critical-image-preloader";
 import SongsImagePreloader from "./compounent/ui/songs-image-preloader";
 import OfflineImageCache from "./compounent/ui/offline-image-cache";
+import FloatingFeedbackButton from "./compounent/ui/floating-feedback-button";
 import ServiceWorkerRegistration from "./compounent/ui/service-worker-registration";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -67,6 +68,7 @@ export default function RootLayout({
               <AudioPreloader />
               {children}
               <BottomPlayer />
+              <FloatingFeedbackButton />
             </AudioProvider>
           </ProfileProvider>
         </ThemeProvider>
