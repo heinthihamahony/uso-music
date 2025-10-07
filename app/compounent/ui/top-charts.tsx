@@ -45,7 +45,7 @@ function AvatarWithPlayIcon({
 
 export default function TopChartsComponent() {
   return (
-    <div className="flex gap-4 overflow-x-auto scrollbar-hide ">
+    <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-24">
       <div className=" w-[320px] flex-shrink-0 theme-bg-tertiary rounded-lg p-2 pb-3">
         <p className="theme-text-primary text-xl font-semibold items-center flex my-2 ml-3">
           Top 5 Music

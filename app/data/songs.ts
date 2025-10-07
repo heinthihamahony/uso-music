@@ -117,7 +117,7 @@ export const songsData: Song[] = [
     avatar: "https://lh3.google.com/u/0/d/1HcAsKiC_2bNmRKgNrEWU2uhy7PI2CY9m=w542-h406-p-k-nu-iv1",
     category: "You hope you like it",
     audioFile: "/audio/Rock + Electro pop.mp3",
-    duration: "3:50",
+    duration: "3:22",
   },
   {
     id: 24,

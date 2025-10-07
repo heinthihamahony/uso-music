@@ -1,6 +1,7 @@
-// Service Worker for Muso Music - Offline Audio Caching
+// Service Worker for Muso Music - Offline Audio & Image Caching
 const CACHE_NAME = 'muso-music-v1';
 const AUDIO_CACHE_NAME = 'muso-music-audio-v1';
+const IMAGE_CACHE_NAME = 'muso-music-images-v1';
 
 // Audio files to cache for offline playback
 const AUDIO_FILES_TO_CACHE = [
@@ -17,14 +18,32 @@ const AUDIO_FILES_TO_CACHE = [
   '/audio/You Shine Anyway .mp3'
 ];
 
-// Install event - cache audio files
+// Images to cache for instant display
+const IMAGES_TO_CACHE = [
+  'https://lh3.google.com/u/0/d/1p5pYU4CkMt_icS1f11dNhoRQGK9VbUEl=w542-h406-p-k-nu-iv1',
+  'https://lh3.google.com/u/0/d/1HcAsKiC_2bNmRKgNrEWU2uhy7PI2CY9m=w542-h406-p-k-nu-iv1',
+  'https://lh3.google.com/u/0/d/1J5c32EHpGaTZypllg0gkH6HlIZJUYueO=w2378-h1624-iv1?auditContext=forDisplay',
+  'https://lh3.google.com/u/0/d/1reIwZsi0tIOZOmRDW7nlT5PcbJA5c1Iw=w542-h406-p-k-nu-iv1',
+  'https://lh3.google.com/u/0/d/1GjzdUaSOrnKkneVLoyCrqVc5g6BIuK9K=w542-h406-p-k-nu-iv2',
+  'https://lh3.google.com/u/0/d/1IdNnlhWav4YMgMxUNqxrUrF0FyYtJMvO=w2378-h1624-iv1?auditContext=prefetch',
+  'https://lh3.google.com/u/0/d/1JyiGE9iw7JZ-aix9pzV6QytGL3-NhPGQ=w2378-h1624-iv1?auditContext=forDisplay',
+  'https://lh3.google.com/u/0/d/1aGA-wzMTGBKQegON76csQCJA-a4E0XsW=w2378-h1624-iv1?auditContext=forDisplay'
+];
+
+// Install event - cache audio files and images
 self.addEventListener('install', (event) => {
   console.log('Service Worker installing...');
   event.waitUntil(
-    caches.open(AUDIO_CACHE_NAME).then((cache) => {
-      console.log('Caching audio files...');
-      return cache.addAll(AUDIO_FILES_TO_CACHE);
-    })
+    Promise.all([
+      caches.open(AUDIO_CACHE_NAME).then((cache) => {
+        console.log('Caching audio files...');
+        return cache.addAll(AUDIO_FILES_TO_CACHE);
+      }),
+      caches.open(IMAGE_CACHE_NAME).then((cache) => {
+        console.log('Caching images...');
+        return cache.addAll(IMAGES_TO_CACHE);
+      })
+    ])
   );
 });
 
@@ -35,7 +54,7 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME && cacheName !== AUDIO_CACHE_NAME) {
+          if (cacheName !== CACHE_NAME && cacheName !== AUDIO_CACHE_NAME && cacheName !== IMAGE_CACHE_NAME) {
             console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
@@ -45,9 +64,9 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event - serve cached audio files
+// Fetch event - serve cached audio files and images
 self.addEventListener('fetch', (event) => {
-  // Only handle audio files
+  // Handle audio files
   if (event.request.url.includes('/audio/')) {
     event.respondWith(
       caches.match(event.request).then((response) => {
@@ -67,6 +86,35 @@ self.addEventListener('fetch', (event) => {
           const responseToCache = response.clone();
 
           caches.open(AUDIO_CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+
+          return response;
+        });
+      })
+    );
+  }
+  
+  // Handle images (Google Drive images)
+  if (event.request.url.includes('lh3.google.com')) {
+    event.respondWith(
+      caches.match(event.request).then((response) => {
+        if (response) {
+          console.log('Serving cached image:', event.request.url);
+          return response;
+        }
+        
+        // If not in cache, fetch and cache it
+        return fetch(event.request).then((response) => {
+          // Check if we received a valid response
+          if (!response || response.status !== 200 || response.type !== 'basic') {
+            return response;
+          }
+
+          // Clone the response
+          const responseToCache = response.clone();
+
+          caches.open(IMAGE_CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
           });
 

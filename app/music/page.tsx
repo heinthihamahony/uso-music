@@ -127,7 +127,7 @@ export default function MusicPage() {
 
       {/* Editor's Choice Section */}
       {editorChoiceSongs.length > 0 && (
-        <div className="mb-12">
+        <div className="">
           <div className="my-3 mt-8 flex items-center gap-2">
             <h2 className="text-xl theme-text-primary font-bold">
               Editor's Choice
@@ -295,7 +295,7 @@ export default function MusicPage() {
 
       {/* International Songs Section */}
       {internationalSongs.length > 0 && (
-        <div className="mb-12">
+        <div className="pb-36">
           <div className="my-3 mt-8 flex items-center gap-2">
             <h2 className="text-xl theme-text-primary font-bold">
               International Songs
