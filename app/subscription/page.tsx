@@ -36,8 +36,8 @@ export default function SubscriptionPage() {
       id: 2,
       name: "6 Months Plan",
       duration: "6 months",
-      price: "$17.99",
-      originalPrice: "$29.94",
+      price: "$54.99",
+      originalPrice: "$89.94",
       savings: "Save 40%",
       features: [
         "Unlimited music streaming",

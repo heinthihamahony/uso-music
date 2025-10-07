@@ -9,6 +9,7 @@ import AudioPreloader from "./compounent/ui/audio-preloader";
 import ImagePreloader from "./compounent/ui/image-preloader";
 import CriticalImagePreloader from "./compounent/ui/critical-image-preloader";
 import SongsImagePreloader from "./compounent/ui/songs-image-preloader";
+import ImmediateImageLoader from "./compounent/ui/immediate-image-loader";
 import OfflineImageCache from "./compounent/ui/offline-image-cache";
 import FloatingFeedbackButton from "./compounent/ui/floating-feedback-button";
 import ServiceWorkerRegistration from "./compounent/ui/service-worker-registration";
@@ -61,6 +62,7 @@ export default function RootLayout({
           <ProfileProvider>
             <AudioProvider>
               <ServiceWorkerRegistration />
+              <ImmediateImageLoader />
               <CriticalImagePreloader />
               <SongsImagePreloader />
               <OfflineImageCache />
