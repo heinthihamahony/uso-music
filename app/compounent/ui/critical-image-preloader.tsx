@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const CRITICAL_IMAGES = [
   "https://lh3.google.com/u/0/d/1p5pYU4CkMt_icS1f11dNhoRQGK9VbUEl=w542-h406-p-k-nu-iv1", // Muso Music Logo (Navbar)
   "https://lh3.google.com/u/0/d/1HcAsKiC_2bNmRKgNrEWU2uhy7PI2CY9m=w542-h406-p-k-nu-iv1", // Yee Mon Khant (Top Charts)
-  "https://lh3.google.com/u/0/d/1J5c32EHpGaTZypllg0gkH6HlIZJUYueO=w2378-h1624-iv1?auditContext=forDisplay", // Hein Thiha (Top Charts)
+  "/IMG/heinthiha.png", // Hein Thiha (Local Image)
   "https://lh3.google.com/u/0/d/1reIwZsi0tIOZOmRDW7nlT5PcbJA5c1Iw=w542-h406-p-k-nu-iv1", // Lin Htet (Top Charts)
   "https://lh3.google.com/u/0/d/1GjzdUaSOrnKkneVLoyCrqVc5g6BIuK9K=w542-h406-p-k-nu-iv2", // Kyaw Htut (Top Charts)
 ];

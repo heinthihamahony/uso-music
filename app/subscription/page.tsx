@@ -55,8 +55,8 @@ export default function SubscriptionPage() {
       id: 3,
       name: "1 Year Plan",
       duration: "1 year",
-      price: "$29.99",
-      originalPrice: "$59.88",
+      price: "$99.99",
+      originalPrice: "$149.88",
       savings: "Save 50%",
       features: [
         "Unlimited music streaming",

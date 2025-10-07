@@ -49,7 +49,7 @@ function AvatarWithPlayIcon({
         name={artist.charAt(0).toUpperCase()}
         classNames={{
           img: "object-cover object-center",
-          name: "text-white font-bold"
+          name: "text-white font-bold",
         }}
         onError={() => {
           // Fallback handled by NextUI Avatar component

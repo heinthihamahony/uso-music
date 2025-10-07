@@ -44,7 +44,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="https://lh3.google.com/u/0/d/1J5c32EHpGaTZypllg0gkH6HlIZJUYueO=w2378-h1624-iv1?auditContext=forDisplay"
+          href="/IMG/heinthiha.png"
         />
         <link
           rel="preload"

@@ -1,8 +1,7 @@
-import { Card, CardFooter, Button, CardHeader } from "@nextui-org/react";
+import { Card, CardFooter, Image, Button, CardHeader } from "@nextui-org/react";
 import PlayIcon from "./play-icon";
 import RightArrowWhite from "./right-arrow-white";
 import AudioPlayer from "./audio-player";
-import EnhancedImage from "./enhanced-image";
 import { Song, getEditorChoiceSongs } from "../../data/songs";
 import { useAudio } from "../../context/audio-context";
 
@@ -53,18 +52,11 @@ export default function EditorChoiceComponent({
                   {song.artist}
                 </h4>
               </CardHeader>
-              <img
+              <Image
+                removeWrapper
                 alt={`${song.title} by ${song.artist}`}
                 className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
                 src={song.avatar}
-                onError={(e) => {
-                  e.currentTarget.src = "https://lh3.google.com/u/0/d/1IdNnlhWav4YMgMxUNqxrUrF0FyYtJMvO=w2378-h1624-iv1?auditContext=prefetch";
-                }}
-                loading="eager"
-                style={{ 
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                  minHeight: '100%'
-                }}
               />
               <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
                 {song.audioFile ? (
