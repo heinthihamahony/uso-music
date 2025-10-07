@@ -5,6 +5,8 @@ import { ProfileProvider } from "./compounent/ui/profile-context";
 import { AudioProvider } from "./context/audio-context";
 import { ThemeProvider } from "./context/theme-context";
 import BottomPlayer from "./compounent/ui/bottom-player";
+import AudioPreloader from "./compounent/ui/audio-preloader";
+import ServiceWorkerRegistration from "./compounent/ui/service-worker-registration";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +27,8 @@ export default function RootLayout({
         <ThemeProvider>
           <ProfileProvider>
             <AudioProvider>
+              <ServiceWorkerRegistration />
+              <AudioPreloader />
               {children}
               <BottomPlayer />
             </AudioProvider>

@@ -10,6 +10,7 @@ export default function BottomPlayer() {
   const {
     currentSongId,
     isPlaying,
+    isLoading,
     playSong,
     pauseSong,
     currentAudio,
@@ -140,8 +141,16 @@ export default function BottomPlayer() {
             size="sm"
             isIconOnly
             onClick={togglePlayPause}
+            isLoading={isLoading}
+            disabled={isLoading}
           >
-            {isPlaying ? <PauseIcon /> : <PlayIcon />}
+            {isLoading ? (
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : isPlaying ? (
+              <PauseIcon />
+            ) : (
+              <PlayIcon />
+            )}
           </Button>
 
           {/* Time Display */}

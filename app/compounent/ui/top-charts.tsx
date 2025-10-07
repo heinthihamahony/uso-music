@@ -177,26 +177,26 @@ export default function TopChartsComponent() {
         </Button>
       </div>
 
-      {/* Hidden audio elements for Top 5 Music */}
+      {/* Hidden audio elements for Top 5 Music - Optimized for fast loading */}
       <audio
         key="audio-32"
         data-song-id={32}
         src="/audio/pracha-song.mp3"
-        preload="metadata"
+        preload="auto"
         style={{ display: "none" }}
       />
       <audio
         key="audio-18"
         data-song-id={18}
         src="/audio/Somewhere We Could Stay (Duo).mp3"
-        preload="metadata"
+        preload="auto"
         style={{ display: "none" }}
       />
       <audio
         key="audio-17"
         data-song-id={17}
         src="/audio/One Day.mp3"
-        preload="metadata"
+        preload="auto"
         style={{ display: "none" }}
       />
       <audio

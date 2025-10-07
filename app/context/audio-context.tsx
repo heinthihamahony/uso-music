@@ -4,12 +4,14 @@ import { createContext, useContext, useState, useRef, ReactNode } from "react";
 interface AudioContextType {
   currentSongId: number | null;
   isPlaying: boolean;
+  isLoading: boolean;
   playSong: (songId: number) => void;
   pauseSong: () => void;
   stopSong: () => void;
   currentAudio: HTMLAudioElement | null;
   currentTime: number;
   duration: number;
+  preloadSong: (songId: number) => void;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -17,10 +19,12 @@ const AudioContext = createContext<AudioContextType | undefined>(undefined);
 export function AudioProvider({ children }: { children: ReactNode }) {
   const [currentSongId, setCurrentSongId] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
   const eventListenersRef = useRef<{ [key: string]: () => void }>({});
+  const preloadedAudios = useRef<Map<number, HTMLAudioElement>>(new Map());
 
   const cleanupCurrentAudio = () => {
     if (currentAudioRef.current) {
@@ -34,18 +38,45 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const preloadSong = (songId: number) => {
+    // Check if already preloaded
+    if (preloadedAudios.current.has(songId)) {
+      return;
+    }
+
+    // Find the audio element for this song
+    const audioElement = document.querySelector(
+      `audio[data-song-id="${songId}"]`
+    ) as HTMLAudioElement;
+
+    if (audioElement) {
+      // Preload the audio
+      audioElement.preload = "auto";
+      audioElement.load();
+      preloadedAudios.current.set(songId, audioElement);
+    }
+  };
+
   const playSong = async (songId: number) => {
     try {
+      setIsLoading(true);
+
       // Clean up current audio
       cleanupCurrentAudio();
 
-      // Find the audio element for this song
-      const audioElement = document.querySelector(
-        `audio[data-song-id="${songId}"]`
-      ) as HTMLAudioElement;
+      // Check if we have a preloaded version
+      let audioElement = preloadedAudios.current.get(songId);
+
+      if (!audioElement) {
+        // Fallback to finding the audio element
+        audioElement = document.querySelector(
+          `audio[data-song-id="${songId}"]`
+        ) as HTMLAudioElement;
+      }
 
       if (!audioElement) {
         console.error(`Audio element not found for song ID: ${songId}`);
+        setIsLoading(false);
         return;
       }
 
@@ -158,6 +189,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       // Play the audio
       await audioElement.play();
       setIsPlaying(true);
+      setIsLoading(false);
 
       // Try to get duration after playing starts
       setTimeout(updateDuration, 500);
@@ -167,6 +199,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       console.error("Error playing song:", error);
       setCurrentSongId(null);
       setIsPlaying(false);
+      setIsLoading(false);
       setCurrentTime(0);
       setDuration(0);
       cleanupCurrentAudio();
@@ -193,12 +226,14 @@ export function AudioProvider({ children }: { children: ReactNode }) {
       value={{
         currentSongId,
         isPlaying,
+        isLoading,
         playSong,
         pauseSong,
         stopSong,
         currentAudio: currentAudioRef.current,
         currentTime,
         duration,
+        preloadSong,
       }}
     >
       {children}
