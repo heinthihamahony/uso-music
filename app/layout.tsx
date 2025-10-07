@@ -8,6 +8,8 @@ import BottomPlayer from "./compounent/ui/bottom-player";
 import AudioPreloader from "./compounent/ui/audio-preloader";
 import ImagePreloader from "./compounent/ui/image-preloader";
 import CriticalImagePreloader from "./compounent/ui/critical-image-preloader";
+import SongsImagePreloader from "./compounent/ui/songs-image-preloader";
+import OfflineImageCache from "./compounent/ui/offline-image-cache";
 import ServiceWorkerRegistration from "./compounent/ui/service-worker-registration";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -59,6 +61,8 @@ export default function RootLayout({
             <AudioProvider>
               <ServiceWorkerRegistration />
               <CriticalImagePreloader />
+              <SongsImagePreloader />
+              <OfflineImageCache />
               <ImagePreloader />
               <AudioPreloader />
               {children}

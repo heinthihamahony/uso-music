@@ -42,10 +42,10 @@ function AvatarWithPlayIcon({
 
   return (
     <div className="relative">
-      <EnhancedAvatar 
-        isBordered 
-        radius="sm" 
-        src={avatar} 
+      <EnhancedAvatar
+        isBordered
+        radius="sm"
+        src={avatar}
         className="w-16 h-16"
         fallbackSrc="https://lh3.google.com/u/0/d/1IdNnlhWav4YMgMxUNqxrUrF0FyYtJMvO=w2378-h1624-iv1?auditContext=prefetch"
         name={artist.charAt(0).toUpperCase()}
