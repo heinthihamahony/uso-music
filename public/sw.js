@@ -18,19 +18,19 @@ const AUDIO_FILES_TO_CACHE = [
   '/audio/You Shine Anyway .mp3'
 ];
 
-// ALL images to cache for instant display - ZERO delays!
+// ALL images to cache for instant display - ZERO delays and OFFLINE support!
 const IMAGES_TO_CACHE = [
   // Logo and main images
   'https://lh3.google.com/u/0/d/1p5pYU4CkMt_icS1f11dNhoRQGK9VbUEl=w542-h406-p-k-nu-iv1', // Muso Music Logo
   
-  // Artist profile pictures
+  // Artist profile pictures - ALL artists
   'https://lh3.google.com/u/0/d/1HcAsKiC_2bNmRKgNrEWU2uhy7PI2CY9m=w542-h406-p-k-nu-iv1', // Yee Mon Khant
   'https://lh3.google.com/u/0/d/1J5c32EHpGaTZypllg0gkH6HlIZJUYueO=w2378-h1624-iv1?auditContext=forDisplay', // Hein Thiha
   'https://lh3.google.com/u/0/d/1reIwZsi0tIOZOmRDW7nlT5PcbJA5c1Iw=w542-h406-p-k-nu-iv1', // Lin Htet
   'https://lh3.google.com/u/0/d/1GjzdUaSOrnKkneVLoyCrqVc5g6BIuK9K=w542-h406-p-k-nu-iv2', // Kyaw Htut
   'https://lh3.google.com/u/0/d/15i2DH_ZubPoGHJIVCmxUnauI_udGilo4=w542-h406-p-k-nu-iv1', // Artist 5
   
-  // Adventure and UI images
+  // Adventure and UI images - ALL UI images
   'https://lh3.google.com/u/0/d/1IdNnlhWav4YMgMxUNqxrUrF0FyYtJMvO=w2378-h1624-iv1?auditContext=prefetch', // Default Avatar
   'https://lh3.google.com/u/0/d/1JyiGE9iw7JZ-aix9pzV6QytGL3-NhPGQ=w2378-h1624-iv1?auditContext=forDisplay', // Adventure 1
   'https://lh3.google.com/u/0/d/1aGA-wzMTGBKQegON76csQCJA-a4E0XsW=w2378-h1624-iv1?auditContext=forDisplay', // Adventure 3

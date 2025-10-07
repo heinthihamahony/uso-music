@@ -12,6 +12,7 @@ import PauseIcon from "../compounent/ui/pause-icon";
 import RightArrowWhite from "../compounent/ui/right-arrow-white";
 import HeartIcon from "../compounent/ui/heart-icon";
 import NavbarComponent from "../compounent/ui/tableleft";
+import EnhancedAvatar from "../compounent/ui/enhanced-avatar";
 import { songsData } from "../data/songs";
 import { useAudio } from "../context/audio-context";
 
@@ -41,7 +42,14 @@ function AvatarWithPlayIcon({
 
   return (
     <div className="relative">
-      <Avatar isBordered radius="sm" src={avatar} className="w-16 h-16" />
+      <EnhancedAvatar 
+        isBordered 
+        radius="sm" 
+        src={avatar} 
+        className="w-16 h-16"
+        fallbackSrc="https://lh3.google.com/u/0/d/1IdNnlhWav4YMgMxUNqxrUrF0FyYtJMvO=w2378-h1624-iv1?auditContext=prefetch"
+        name={artist.charAt(0).toUpperCase()}
+      />
       <button
         onClick={handlePlayPause}
         className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-sm hover:bg-black/70 transition-colors"
