@@ -39,16 +39,8 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/IMG/Yee Mon Khant.jpg" />
         <link rel="preload" as="image" href="/IMG/heinthiha.png" />
         <link rel="preload" as="image" href="/IMG/Hsu Pyae Aung.png" />
-        <link
-          rel="preload"
-          as="image"
-          href="https://lh3.google.com/u/0/d/1reIwZsi0tIOZOmRDW7nlT5PcbJA5c1Iw=w542-h406-p-k-nu-iv1"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="https://lh3.google.com/u/0/d/1GjzdUaSOrnKkneVLoyCrqVc5g6BIuK9K=w542-h406-p-k-nu-iv2"
-        />
+        <link rel="preload" as="image" href="/IMG/Lin Htet.jpg" />
+        <link rel="preload" as="image" href="/IMG/Kyaw Htut.jpg" />
       </head>
       <body className={inter.className}>
         <ThemeProvider>

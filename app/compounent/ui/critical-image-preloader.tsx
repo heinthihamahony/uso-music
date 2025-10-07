@@ -7,8 +7,8 @@ const CRITICAL_IMAGES = [
   "/IMG/Yee Mon Khant.jpg", // Yee Mon Khant (Local Image)
   "/IMG/heinthiha.png", // Hein Thiha (Local Image)
   "/IMG/Hsu Pyae Aung.png", // Hsu Pyae Aung (Local Image)
-  "https://lh3.google.com/u/0/d/1reIwZsi0tIOZOmRDW7nlT5PcbJA5c1Iw=w542-h406-p-k-nu-iv1", // Lin Htet (Top Charts)
-  "https://lh3.google.com/u/0/d/1GjzdUaSOrnKkneVLoyCrqVc5g6BIuK9K=w542-h406-p-k-nu-iv2", // Kyaw Htut (Top Charts)
+  "/IMG/Lin Htet.jpg", // Lin Htet (Local Image)
+  "/IMG/Kyaw Htut.jpg", // Kyaw Htut (Local Image)
 ];
 
 export default function CriticalImagePreloader() {
