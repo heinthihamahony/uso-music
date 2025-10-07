@@ -45,7 +45,9 @@ export default function ProfileAvator({ username }: ProfileAvatorProps) {
           <Avatar
             isBordered
             src={profilePicture || undefined}
-            name={currentUsername ? currentUsername.charAt(0).toUpperCase() : "?"}
+            name={
+              currentUsername ? currentUsername.charAt(0).toUpperCase() : "?"
+            }
             className="w-16 h-16 cursor-pointer hover:opacity-80 transition-opacity"
             classNames={{
               img: "object-cover object-center",
