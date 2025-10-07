@@ -10,12 +10,6 @@ export default function HthLinkBody2() {
   return (
     <div className="my-5">
       <Link
-        className="theme-text-primary font-semibold text-2xl flex gap-5"
-        href="#"
-      >
-        <FeedbackIcon /> Feedback
-      </Link>
-      <Link
         className="theme-text-primary font-semibold text-2xl flex gap-5 my-5"
         href="#"
       >
