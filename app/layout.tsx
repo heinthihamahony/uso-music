@@ -36,16 +36,9 @@ export default function RootLayout({
           as="image"
           href="https://lh3.google.com/u/0/d/1p5pYU4CkMt_icS1f11dNhoRQGK9VbUEl=w542-h406-p-k-nu-iv1"
         />
-        <link
-          rel="preload"
-          as="image"
-          href="https://lh3.google.com/u/0/d/1HcAsKiC_2bNmRKgNrEWU2uhy7PI2CY9m=w542-h406-p-k-nu-iv1"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/IMG/heinthiha.png"
-        />
+        <link rel="preload" as="image" href="/IMG/Yee Mon Khant.jpg" />
+        <link rel="preload" as="image" href="/IMG/heinthiha.png" />
+        <link rel="preload" as="image" href="/IMG/Hsu Pyae Aung.png" />
         <link
           rel="preload"
           as="image"
