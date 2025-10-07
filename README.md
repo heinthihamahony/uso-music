@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Muso Music
+
+A modern music streaming application built with [Next.js](https://nextjs.org/) that allows users to discover, play, and enjoy their favorite music with a beautiful and intuitive interface.
 
 ## Getting Started
 
